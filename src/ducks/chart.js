@@ -30,16 +30,28 @@ var initialState = {
 // step 5 fires the switch statement. We now go to index.js
 export default function chart(state = initialState, action) {
     switch(action.type) {
+        // this case adds the new chart to the beginning of the charts array
+        // it does this by adding the chart to the beginning of the active chart index on the sidebar
+        // and then it adds the new chart to the beginning of the charts array using the spread operator
         case CREATE_CHART:
             return {
                 activeChartIndex: 0,
                 charts: [ action.chart, ...state.charts ]
             };
+            // this case sets the active chart index 
+            // it doesn't make any changes to the charts array
+            // it simply updates the active chart index
         case SET_ACTIVE_CHART_INDEX:
             return {
                 activeChartIndex: action.index,
                 charts: state.charts
-            }
+            };
+            // this case is to add a dataset to a chart
+            // first, we destructure the object
+            // then adding a new chart is a nightmare
+            // we keep the charts in the right order by using slice
+            // then we add a new Object that has datasets to modify
+            // then we add the rest of the charts to the charts array
             case ADD_DATASET: {
                 const { activeChartIndex, charts } = state;
                 const activeChart = charts[ activeChartIndex ];
@@ -51,7 +63,7 @@ export default function chart(state = initialState, action) {
                     ...charts.slice(activeChartIndex + 1, charts.length)
                     ]
                 }
-                }
+                };
         default:
             return state;
     }

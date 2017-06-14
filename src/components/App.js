@@ -12,7 +12,7 @@ import AddDataset from "./AddDataset/AddDataset";
 
 class App extends Component {
 	render() {
-
+// this destructures the objects so we can omit this.props when calling these methods
 		const {
 			activeChart,
 			charts,

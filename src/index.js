@@ -7,6 +7,7 @@ import store from './store.js'; // step 1 sends us to store.js
 
 import App from "./components/App"; //step 6 imports App which calls mapStateToProps in App.js
 
+// make sure to wrap the root file in a provider!!
 ReactDOM.render(
 	<Provider store={store}>
 		<App />

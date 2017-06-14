@@ -8,7 +8,7 @@ export default function Sidebar( { charts, setActiveChartIndex } ) {
 			<h3 className="sidebar__title">Past Charts</h3>
 
 			<ul className="sidebar__past-charts">
-				{ 
+				{ // this maps through the array of charts and places them on the sidebar by injecting JSX
 					charts.map( (chart, index) => (
 					  
 						<li className="sidebar__past-chart" key={ chart.name }>
